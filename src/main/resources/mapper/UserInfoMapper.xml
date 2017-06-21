@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bq.dao.UserInfoMapper">
+
+    <sql id="Base_Column_List">
+    id, userId, nickName, phoneNo, password, historyPassword, email, tbUserId, tbPassword, 
+    headPic, gender, platform, level, signature, fansCount, attentionCount, friendsCount, 
+    status, ryToken
+  </sql>
+    <select id="selectByPrimaryKey" resultType="UserInfo" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from userInfo
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+</mapper>

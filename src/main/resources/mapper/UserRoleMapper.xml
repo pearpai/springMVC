@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bq.dao.UserRoleMapper">
+
+    <select id="getUserRole" parameterType="Integer" resultType="Role">
+        select tr.id, tr.rolename from t_user_role tur
+        left join t_role tr on tur.user_id = tr.id
+        <where>
+            tur.user_id = #{userId}
+        </where>
+    </select>
+</mapper>
